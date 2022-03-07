@@ -1,2 +1,2 @@
 # aws-aurora-postgresql
-Demo on using Aurora PostgreSQL and Babelfish
+Demo on using Aurora PostgreSQL and Babelfish.

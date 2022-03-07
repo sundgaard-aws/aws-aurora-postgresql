@@ -37,6 +37,7 @@ namespace BabelfishConsole
             //do the actual work here
             var tradeBO = serviceProvider.GetService<TradeBO>();
             var trade = new TradeDTO();
+            tradeBO.PriceTrade(trade);
             tradeBO.BookTrade(trade);
 
             // list page of trades

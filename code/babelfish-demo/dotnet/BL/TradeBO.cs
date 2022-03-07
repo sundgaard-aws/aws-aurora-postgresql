@@ -20,5 +20,10 @@ namespace BL
         {
             return tradeDAC.RestorePage(startPage, pageSize);
         }
+
+        public void PriceTrade(TradeDTO trade)
+        {
+            trade.TradeAmount = new Random().Next(50000);
+        }
     }
 }

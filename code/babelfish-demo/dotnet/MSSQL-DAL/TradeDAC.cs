@@ -55,9 +55,11 @@ namespace MSSQL_DAL
 
         public void StoreTrade(TradeDTO trade)
         {
-            
-            if(trade.TradeId == null || RestoreTrade(trade.TradeId.Value) == null)
-                db.Execute("insert into trade(trade_amount) values(@TradeAmount)", trade);
+            db.Execute("delete from trade where trade_id is null");            
+            if(trade.TradeId == null || RestoreTrade(trade.TradeId.Value) == null) {
+                trade.TradeId = db.QuerySingle<long>("select max(trade_id) from trade")+1;
+                db.Execute("insert into trade(trade_amount,trade_id) values(@TradeAmount,@TradeId)", trade);
+            }
             else
                 db.Execute("update trade set trade_amount=@TradeAmount where trade_id=@TradeId", trade);
         }

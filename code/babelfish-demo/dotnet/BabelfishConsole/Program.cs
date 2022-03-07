@@ -37,7 +37,13 @@ namespace BabelfishConsole
             //do the actual work here
             var tradeBO = serviceProvider.GetService<TradeBO>();
             var trade = new TradeDTO();
+            tradeBO.PriceTrade(trade);
             tradeBO.BookTrade(trade);
+
+            // list page of trades
+            var tradeList = tradeBO.GetTradeList(0, 20);
+            foreach(var tradeX in tradeList) Console.WriteLine(trade);
+
             Console.WriteLine("BabelfishConsole ended.");
         }
     }

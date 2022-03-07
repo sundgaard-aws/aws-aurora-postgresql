@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using DAL;
 using DTL;
 
@@ -13,6 +14,16 @@ namespace BL
         }
         public void BookTrade(TradeDTO trade) {
             tradeDAC.StoreTrade(trade);
+        }
+
+        public IEnumerable<TradeDTO> GetTradeList(int startPage, int pageSize)
+        {
+            return tradeDAC.RestorePage(startPage, pageSize);
+        }
+
+        public void PriceTrade(TradeDTO trade)
+        {
+            trade.TradeAmount = new Random().Next(50000);
         }
     }
 }

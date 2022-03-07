@@ -14,3 +14,6 @@ insert into trades values (2, 'FX Option');
 
 select * from trades;
 ```
+=======
+# aws-aurora-postgresql
+Demo on using Aurora PostgreSQL and Babelfish.
